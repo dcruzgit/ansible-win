@@ -1,0 +1,13 @@
+---
+# 7-Zip exe doesn't use a guid for the Product ID
+- name: Install Windows MSI
+  hosts: windows
+  tasks:
+    - name: Get 7zip from Internet
+      win_get_url:
+        url: https://www.7-zip.org/a/7z1805-x64.msi
+        dest: C:\Users\Public\7z1805-x64.msi
+    - name: Install 7zip from a internet
+      win_package:
+        path: C:\Users\Public\7z1805-x64.msi
+        state: present
